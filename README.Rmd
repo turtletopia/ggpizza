@@ -1,0 +1,52 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# ggpizza
+
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+<!-- badges: end -->
+
+The goal of ggpizza is to ...
+
+## Installation
+
+You can install the development version of `ggpizza` like so:
+
+``` r
+#install.packages('devtools')
+devtools::install_github('turtletopia/ggpizza')
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(ggpizza)
+library(ggplot2)
+
+set.seed(123)
+some_random_data <- data.frame(x = sample(1:10, 50, TRUE), 
+                               y = sample(1:10, 50, TRUE),
+                               color = sample(1:3, 50, TRUE))
+some_random_data
+```
+
+
+```{r}
+ggplot(some_random_data, aes(x, y, fill = as.factor(color))) +
+  geom_point_pizza()
+```
