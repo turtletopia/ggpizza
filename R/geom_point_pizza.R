@@ -1,5 +1,5 @@
 #' @importFrom ggplot2 ggproto Geom aes
-#' @importFrom dplyr mutate `%>%` group_by
+#' @importFrom dplyr mutate `%>%` group_by n
 #' @export
 GeomPointPizza <- ggplot2::ggproto(
   `_class` = "GeomSimplePoint",
