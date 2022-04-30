@@ -15,6 +15,3 @@ make_pizza_slice <- function(x, y, radius, slice_id, num_slices, color, fill, lw
   grid::polygonGrob(xs, ys, gp = grid::gpar(fill = fill, col = color, lwd = lwd),
                      default.units = "native")
 }
-
-
-#make_pizza(0.5, 0.5, 0.3, 3, rep(NA, 3), c("blue", "white", "green"), 90)
