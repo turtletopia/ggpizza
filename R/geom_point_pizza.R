@@ -1,11 +1,12 @@
-#' @importFrom ggplot2 ggproto Geom aes
+#' @importFrom ggplot2 ggproto Geom aes .stroke .pt
 #' @importFrom dplyr mutate `%>%` group_by n
 #' @export
 GeomPointPizza <- ggplot2::ggproto(
   `_class` = "GeomSimplePoint",
   `_inherit` = ggplot2::Geom,
   required_aes = c("x", "y"),
-  default_aes = ggplot2::aes(shape = 19, colour = "black", stroke = 1, alpha = 1, fill = "white", size = 0.5),
+  default_aes = ggplot2::aes(shape = 19, colour = "black", stroke = 0.5,
+                             alpha = 1, fill = "white", size = 1.5),
   draw_key = ggplot2::draw_key_point,
 
   draw_panel = function(data, panel_params, coord) {
@@ -20,12 +21,13 @@ GeomPointPizza <- ggplot2::ggproto(
       \(i) make_pizza_slice(
         x = coords[i, 'x'],
         y = coords[i, 'y'],
-        radius = coords[i, 'size'] * .pt / 100,
+        size = size,
         slice_id = coords[i, 'slice_id'],
         num_slices = coords[i, 'num_slices'],
-        color = ggplot2::alpha(coords[i, 'colour'], coords[i, 'alpha']),
-        fill = ggplot2::alpha(coords[i, 'fill'], coords[i, 'alpha']),
-        lwd = coords[i, 'stroke'] * .stroke/2
+        color = NA,
+        fill = ggplot2::alpha(coords[i, 'colour'], coords[i, 'alpha']),
+        lwd = coords[i, 'stroke'] * .stroke/2,
+        fontsize = coords[i, 'size'] * .pt + coords[i, "stroke"] * .stroke / 2
       )
     )
     grid::gTree("pizza_grob", children = do.call(grid::gList, grobs))
