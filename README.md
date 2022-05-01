@@ -87,8 +87,8 @@ some_random_data
 ```
 
 ``` r
-ggplot(some_random_data, aes(x, y, fill = as.factor(color))) +
-  geom_point_pizza()
+ggplot(some_random_data, aes(x, y, color = as.factor(color))) +
+  geom_point_pizza(size = 3)
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />

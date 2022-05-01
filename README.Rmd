@@ -46,7 +46,7 @@ some_random_data
 ```
 
 
-```{r}
-ggplot(some_random_data, aes(x, y, fill = as.factor(color))) +
-  geom_point_pizza()
+```{r fig.width=10, fig.height=7}
+ggplot(some_random_data, aes(x, y, color = as.factor(color))) +
+  geom_point_pizza(size = 3)
 ```
